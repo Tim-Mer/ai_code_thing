@@ -1,10 +1,8 @@
 from functions import get_files_info
 
-print(get_files_info.get_files_info("calculator", "."))
+test_list = [".", "pkg", "/bin", "../"]
 
-print(get_files_info.get_files_info("calculator", "pkg"))
-
-print(get_files_info.get_files_info("calculator", "/bin"))
-
-print(get_files_info.get_files_info("calculator", "../"))
+for item in test_list:
+    print(f"Result for '{item}' directory")
+    print(get_files_info.get_files_info("calculator", item))
 
