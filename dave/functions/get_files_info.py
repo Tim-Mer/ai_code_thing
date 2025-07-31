@@ -33,4 +33,18 @@ def get_files_info(working_directory, directory="."):
     for x in dir_items:
         res += f"{x}" + f"\n"
     
-    return res.rstrip("\n")        
+    return res.rstrip("\n")
+
+def get_file_content(working_directory, file_path):
+    try:
+        abs_working_directory = os.path.abspath(os.path.join("./", working_directory))
+        abs_file = os.path.abspath(os.path.join(working_directory, file_path))    
+    
+        if os.path.commonpath([abs_working_directory]) != os.path.commonpath([abs_working_directory, abs_file]):
+            return f'Error: Cannot read "{file_path}" as it is outside the permitted working directory'
+        if os.path.isfile(abs_file):
+            return f'Error: File not found or is not a regular file: "{file_path}"'
+    except:
+        return f"Error: Invalid file path"
+    
+    
