@@ -1,8 +1,10 @@
-from functions import get_files_info
+from functions.run_python import run_python_file
 
-test_list = [".", "pkg", "/bin", "../"]
 
-for item in test_list:
-    print(f"Result for '{item}' directory")
-    print(get_files_info.get_files_info("calculator", item))
+print(run_python_file("calculator", "main.py"))
+print(run_python_file("calculator", "main.py", ["3 + 5"]))
+print(run_python_file("calculator", "tests.py"))
+print(run_python_file("calculator", "../main.py"))
+print(run_python_file("calculator", "nonexistent.py"))
+
 
